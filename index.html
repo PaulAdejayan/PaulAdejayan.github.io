@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Paul Adejayan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#dc1928">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#dc1928">
+<meta name="description" content="Paul Adejayan builds automation where security meets AI. CS and cybersecurity at UMBC, graduating May 2027. Security+ certified, clearance-eligible.">
+<link rel="canonical" href="https://pauladejayan.github.io/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23dc1928'/><text x='16' y='23' text-anchor='middle' font-family='Times New Roman,serif' font-size='22' fill='white'>P</text></svg>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Paul Adejayan — automation where security meets AI">
+<meta property="og:description" content="CS and cybersecurity at UMBC, graduating May 2027. Security+ certified, clearance-eligible. Builder of PHI Scrubber, ScalpStation, ClientPulse.">
+<meta property="og:image" content="img/baltimore-inner-harbor-skyline-night-panorama.jpg">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="440">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Paul Adejayan — automation where security meets AI">
+<meta name="twitter:description" content="CS and cybersecurity at UMBC, graduating May 2027. Security+ certified, clearance-eligible.">
+<meta name="twitter:image" content="img/baltimore-inner-harbor-skyline-night-panorama.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{background:#e2dccf}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+/* Layout: type-only first screen on a post-red field, then typographic set pieces that move left, right and full width. */
+:root{
+  color-scheme:light;
+  --bg:#e2dccf;        /* bone */
+  --surface:#d7d0c1;
+  --ink:#2a1110;
+  --muted:#6b524c;
+  --accent:#4a6f84;    /* slate */
+  --accent-ink:#ffffff;
+  --red:#dc1928; --red-ink:#ffffff;
+  --maroon:#952625;
+  --mustard:#e0a912;
+  --display:'Instrument Serif','Times New Roman',serif;
+  --text:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --step-small:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+  --step-head:clamp(2.25rem,1.3rem + 3.6vw,4.5rem);
+  --gutter:max(24px,env(safe-area-inset-left,0px));
+  --gutter-r:max(24px,env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--text);font-size:var(--step-body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-height:.92;margin:0;text-wrap:balance}
+.wrap{padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--red);color:var(--red-ink);min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding-block:24px 28px}
+.top{display:flex;justify-content:space-between;align-items:baseline;font-size:16px}
+.top a{text-decoration:none}
+.top nav{display:flex;gap:28px}
+.top nav a{position:relative}
+.top nav a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.top nav a:focus-visible::after{transform:scaleX(1)}
+.hero h1{align-self:start;margin-top:12svh;font-size:clamp(96px,15vw,232px);letter-spacing:-.04em;line-height:.86}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.12em}
+.hero h1 .ln > span{display:block}
+.hero h1 .ln:last-child{text-align:right}
+.hero__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.hero__foot p{margin:0;font-size:22px;line-height:1.35;max-width:44ch}
+.hero__foot p .creds{display:block;margin-top:10px;font-size:16px;line-height:1.45;opacity:.92}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;background:var(--ink);color:#fff;text-decoration:none;font-size:16px;font-weight:500;white-space:nowrap;transition:transform .3s var(--ease),background .3s}
+.btn:active{transform:translateY(0)}
+.btn svg{transition:transform .3s var(--ease)}
+.btn.ghost{background:var(--bg);color:var(--ink)}
+
+/* ---------- Work ledger ---------- */
+.work{padding-block:200px 160px;position:relative}
+.ledger{margin-left:20vw;width:min(580px,100%);position:relative}
+.ledger h2{font-size:var(--step-head);margin-bottom:40px}
+.rows{list-style:none;margin:0;padding:0}
+.row{position:relative}
+.row button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:55% 1fr auto;align-items:baseline;width:100%;min-height:48px;padding:10px 0;cursor:pointer;color:var(--ink);transition:color .2s}
+.row button:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
+.row .name{font-size:var(--step-body);font-weight:500}
+.row .kind{font-size:16px;color:var(--muted)}
+.row .yr{font-size:16px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.rows.dim .row button{color:var(--muted)}
+.rows.dim .row.on button{color:var(--ink)}
+.row .desc,.row .pf{display:none}
+.archive{margin:40px 0 0;font-size:16px;line-height:1.55;color:var(--muted);max-width:54ch}
+.archive strong{color:var(--ink);font-weight:500}
+.preview{position:absolute;left:calc(100% + 64px);top:96px;width:min(420px,calc(80vw - 580px - 64px - 24px));padding:28px;background:var(--surface);transition:top .35s var(--ease)}
+.preview h3{font-size:clamp(28px,2.4vw,40px);margin-bottom:14px}
+.preview p{margin:0 0 16px}
+.preview .tags{font-size:var(--step-small);color:var(--muted);margin:0}
+.preview .swap{transition:opacity .15s}
+.proof{margin:0 0 16px!important;font-size:var(--step-small)}
+.proof a{color:var(--maroon);font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+
+/* ---------- PHI demo (live thing) ---------- */
+.demo{background:var(--ink);color:#f3ece0;padding-block:160px}
+.demo__head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.demo h2{font-size:var(--step-head);color:#fff}
+.demo__head p{margin:0;max-width:52ch;color:#e3d6c8}
+.panes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pane{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pane label,.pane .lbl{font-size:16px;color:#d9c8b8}
+textarea{font:inherit;font-size:16px;line-height:1.55;color:var(--ink);background:#f3ece0;border:0;border-radius:0;padding:20px;min-height:300px;resize:vertical;width:100%}
+textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
+.out{background:#3b1a18;padding:20px;min-height:300px;line-height:1.55;font-size:16px;white-space:pre-wrap;overflow-wrap:anywhere}
+.out mark{background:var(--mustard);color:var(--ink);padding:0 .2em;border-radius:2px;font-weight:500}
+.demo__meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:20px;font-size:16px;color:#d9c8b8}
+.demo__meta strong{color:#fff;font-weight:500}
+.demo__meta a{color:#fff}
+
+/* ---------- Full-bleed photograph ---------- */
+.bleed{margin:0;position:relative}
+.bleed img{width:100%;height:min(78svh,760px);object-fit:cover}
+.bleed figcaption{padding-block:14px 0;font-size:16px;color:var(--muted)}
+
+/* ---------- Experience line-up ---------- */
+.lineup{background:var(--mustard);color:var(--ink);padding-block:120px 140px}
+.lineup h2{font-size:var(--step-head);margin-bottom:12px}
+.lineup table{width:100%;border-collapse:collapse;font-size:clamp(20px,2.1vw,30px);line-height:1.5}
+.lineup th{font-weight:400;text-align:left}
+.lineup .part th{color:var(--maroon);padding-top:64px;padding-bottom:12px;font-family:var(--display);font-size:clamp(28px,2.6vw,40px)}
+.lineup td{padding:0;vertical-align:baseline}
+.lineup td:nth-child(1){width:33%}
+.lineup td:nth-child(2){width:33%}
+.lineup td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.lineup .soft{color:#4f3406}
+
+/* ---------- Stack: photo + skills ---------- */
+.stack{display:grid;grid-template-columns:5fr 7fr;gap:64px;padding-block:160px;align-items:center}
+.stack figure{margin:0}
+.stack img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.stack figcaption{font-size:16px;color:var(--muted);margin-top:12px}
+.stack h2{font-size:var(--step-head);margin-bottom:28px}
+.skills{list-style:none;margin:0;padding:0;font-family:var(--display);font-size:clamp(40px,4.6vw,76px);line-height:1.02;letter-spacing:-.02em}
+.skills li{transition:transform .4s var(--ease),color .3s}
+
+/* ---------- About statement ---------- */
+.about{background:var(--surface);padding-block:120px}
+.about h2{font-size:var(--step-head);margin-bottom:40px}
+.ask{margin:40px 0 0;font-size:var(--step-lead);line-height:1.25}
+.ask a{background:var(--red);color:#fff;text-decoration:none;padding:.12em .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.story{columns:2;column-gap:40px;font-size:clamp(22px,2vw,30px);line-height:1.22;text-align:justify;hyphens:auto;margin:0;color:var(--ink)}
+.story b{color:var(--ink);font-weight:500}
+.hl{color:var(--ink);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl-m{background:var(--mustard)}
+.hl-s{background:#a9c0cd}
+.hl-r{background:#f2a7a0}
+
+/* ---------- Contact rows ---------- */
+.contact{background:var(--red);color:#fff}
+.contact h2{font-size:var(--step-head);padding-block:120px 20px}
+.contact__note{margin:0;padding-bottom:44px;font-size:var(--step-lead);line-height:1.3;max-width:30ch}
+.crow{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;min-height:150px;padding-block:0 26px;font-family:var(--display);font-size:clamp(44px,6vw,88px);line-height:1;letter-spacing:-.02em;text-decoration:none}
+.crow:nth-of-type(even){background:#c9121f}
+.crow small{font-family:var(--text);font-size:var(--step-small);letter-spacing:0;opacity:.85;padding-bottom:.6em;white-space:nowrap}
+a.crow{transition:background .3s}
+.crow .arrow{display:inline-grid;place-items:center;width:.9em;height:.9em;border-radius:50%;background:#fff;color:var(--red);margin-left:24px;transition:transform .35s var(--ease)}
+.crow .arrow svg{width:.4em;height:.4em}
+
+/* ---------- Footer ---------- */
+.foot{background:var(--ink);color:#f3ece0;display:grid;grid-template-rows:auto auto;row-gap:clamp(96px,14vw,200px);padding-block:56px 20px}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;font-size:16px}
+.cols h3{font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:0;line-height:1.5;color:#fff;margin-bottom:6px}
+.cols ul{list-style:none;margin:0;padding:0;color:#cdbcaf}
+.cols li{margin-bottom:4px}
+.cols a{text-decoration:none}
+.credits{font-size:14px;line-height:1.5;color:#b9a79a}
+.mark{width:100%;height:auto;display:block;margin-bottom:12px}
+.mark text{font-family:var(--display);fill:#f3ece0}
+.legal{font-size:14px;color:#b9a79a;margin:0}
+
+/* ---------- Touch ---------- */
+/* Controls fire click immediately and never long-press-select their own label.
+   Body text stays selectable - people copy it. */
+button,a,[role="button"]{touch-action:manipulation}
+button,.btn,.crow,.row button,.top nav a{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+
+/* Press feedback works on every input type, unlike hover. Native controls
+   respond when the finger lands, not when it lifts. */
+.btn:active{transform:scale(.985)}
+a.crow:active{background:var(--maroon)}
+.row button:active .name{color:var(--maroon)}
+.skills li:active{color:var(--red)}
+
+/* ---------- Hover: pointing devices only ----------
+   Touch browsers fake :hover on first tap and leave it applied. Ungated,
+   a tapped skill stays shifted 12px and red until you tap elsewhere. */
+@media (hover:hover) and (pointer:fine){
+  .top nav a:hover::after{transform:scaleX(1)}
+  .btn:hover{transform:translateY(-2px);background:#1a0807}
+  .btn:hover svg{transform:translateY(3px)}
+  .btn.ghost:hover{background:#fff}
+  .btn.ghost:hover svg{transform:translateY(3px)}
+  .proof a:hover{color:var(--red)}
+  .skills li:hover{transform:translateX(12px);color:var(--red)}
+    a.crow:hover{background:var(--maroon)}
+  a.crow:hover .arrow{transform:rotate(-45deg)}
+  .cols a:hover{color:#fff;text-decoration:underline}
+  .ask a:hover{background:var(--maroon)}
+}
+
+/* ---------- Motion ---------- */
+.js .hero h1 .ln > span{transform:translateY(105%);transition:transform .9s var(--ease)}
+.js .hero h1 .ln:nth-child(2) > span{transition-delay:.11s}
+.js .hero .fade{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease) .45s,transform .8s var(--ease) .45s}
+.js.ready .hero h1 .ln > span{transform:none}
+.js.ready .hero .fade{opacity:1;transform:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.slow img{transform:scale(1.08);transition:transform 2.4s var(--ease)}
+.slow.in img{transform:scale(1)}
+
+/* ---------- Tablet / phone ---------- */
+@media (max-width:1100px){
+  .hero{min-height:auto}
+  .hero h1{margin-block:14svh 22svh}
+  .ledger{margin-left:0}
+  .preview{display:none}
+  .row .desc{display:block;font-size:16px;color:var(--ink);padding:0 0 10px;max-width:60ch}
+  .row .pf{display:block;padding:0 0 18px}
+  .rows.dim .row button{color:var(--ink)}
+  .demo__head,.panes{grid-template-columns:1fr}
+  .stack{grid-template-columns:1fr}
+  .stack img{aspect-ratio:16/10}
+}
+@media (max-width:640px){
+  :root{--gutter:max(16px,env(safe-area-inset-left,0px));--gutter-r:max(16px,env(safe-area-inset-right,0px))}
+  .top nav{gap:18px}
+  .top nav a:nth-child(2){display:none}
+  .hero h1{font-size:23vw;margin-top:14svh;line-height:.9}
+  .hero h1 .ln:last-child{text-align:left}
+  .hero__foot{flex-direction:column;align-items:stretch;gap:20px}
+  .hero__foot p{font-size:20px}
+  .btns{width:100%}
+  .btn{flex:1 1 auto;justify-content:center}
+  .work{padding-block:120px 96px}
+  .row button{grid-template-columns:1fr auto;min-height:52px}
+  .row .kind{grid-column:1/-1;grid-row:2;font-size:14px}
+  .row .yr{grid-row:1;grid-column:2}
+  .demo{padding-block:110px}
+  textarea,.out{min-height:240px}
+  .bleed img{height:52svh}
+  .lineup{padding-block:96px}
+  .lineup table,.lineup tbody,.lineup tr,.lineup td,.lineup th{display:block;width:auto!important}
+  .lineup tr{padding-bottom:18px}
+  .lineup tr.part{padding-bottom:0}
+  .lineup td:nth-child(1){font-size:22px}
+  .lineup td:nth-child(n+2){display:inline;font-size:14px;color:#4f3406}
+  .lineup td:nth-child(2)::after{content:" · "}
+  .lineup td:nth-child(3)::after{content:" · "}
+  .lineup td:last-child{text-align:left}
+  .lineup .part th{padding-top:48px;font-size:30px}
+  .stack{padding-block:120px}
+  .skills{font-size:11vw}
+  .story{columns:1;text-align:left;font-size:20px;line-height:1.3}
+  .contact h2{padding-block:96px 24px}
+  .crow{min-height:84px;font-size:9.6vw;padding-bottom:16px;flex-wrap:wrap}
+  .crow small{display:none}
+  .crow.hello{background:var(--accent)}
+  .crow .arrow{width:56px;height:56px;margin-left:12px}
+  .crow .arrow svg{width:20px;height:20px}
+  .cols{grid-template-columns:1fr 1fr;row-gap:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .hero h1 .ln > span,.js .hero .fade,.rv,.slow img{transform:none!important;opacity:1!important;transition:none!important}
+  .skills li,.btn,.crow .arrow{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero wrap" id="top">
+  <div class="top">
+    <a href="#top">Paul Adejayan</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <h1 aria-label="Paul Adejayan"><span class="ln"><span>Paul</span></span><span class="ln"><span>Adejayan</span></span></h1>
+  <div class="hero__foot fade">
+    <p>I build automation where security meets AI. Computer science and cybersecurity at UMBC, graduating May 2027.
+      <span class="creds">Security+ certified · U.S. citizen, clearance-eligible · open to the DMV or remote</span>
+    </p>
+    <div class="btns">
+      <a class="btn" href="#work">See the work
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11M3.5 8.5 8 13l4.5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+      </a>
+      <a class="btn ghost" href="Paul_Adejayan_Resume.pdf">Résumé
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v9M4 7.5 8 11.5l4-4M2.5 13.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="work wrap" id="work" aria-labelledby="work-h">
+    <div class="ledger">
+      <h2 id="work-h" class="rv">Selected work</h2>
+      <ul class="rows" id="rows"></ul>
+      <p class="archive rv">Also built: <strong>loaner device tracker</strong> for NIH NIDDK · <strong>Synaptix</strong>, a Telegram bridge for driving a coding agent remotely · <strong>FitRows</strong>, a WooCommerce plugin that pulls Year/Make/Model fitment out of auto-parts titles · a <strong>crowdsourced study guide platform</strong> built with UMBC faculty.</p>
+      <aside class="preview" id="preview" aria-live="polite">
+        <div class="swap" id="swap"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="demo wrap" id="phi" aria-labelledby="phi-h">
+    <div class="demo__head">
+      <h2 id="phi-h" class="rv">Try the PHI Scrubber</h2>
+      <p class="rv">PHI Scrubber is my open-source tool for de-identifying clinical notes under HIPAA Safe Harbor. Edit the sample note below and watch the identifiers get replaced as you type.</p>
+    </div>
+    <div class="panes rv">
+      <div class="pane">
+        <label for="note">Clinical note (fictional sample)</label>
+        <textarea id="note" spellcheck="false">Pt Maria Delgado (MRN 00482913) seen by Dr. Alan Brooks on 03/14/2026 at Baltimore Harbor Clinic. Callback 410-555-0187 or maria.delgado@example.com. SSN on file 123-45-6789. Lives at 412 Elm Street. Follow-up visit 04/02/2026.</textarea>
+      </div>
+      <div class="pane">
+        <span class="lbl" id="outlbl">De-identified output</span>
+        <div class="out" id="out" aria-labelledby="outlbl" aria-live="polite"></div>
+      </div>
+    </div>
+    <div class="demo__meta">
+      <span><strong id="count">0</strong> <span id="noun">identifiers</span> replaced in your browser. Nothing is sent anywhere.</span>
+      <span>This demo uses patterns only. The real tool adds named-entity recognition, keyed date shifting and a 56-test suite run in CI. <a href="https://github.com/PaulAdejayan/phi-scrubber">Source on GitHub, MIT licensed</a></span>
+    </div>
+  </section>
+
+  <figure class="bleed slow rv">
+    <img src="img/gateway-center-entrance-national-institutes-of-health.jpg" width="1800" height="1013" alt="The Gateway Center visitor entrance at the National Institutes of Health campus in Bethesda, Maryland" loading="lazy">
+    <figcaption class="wrap">The NIH campus in Bethesda, where I interned with the NIDDK IT team in 2026 and return in spring 2027.</figcaption>
+  </figure>
+
+  <section class="lineup wrap" id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h" class="rv">Experience</h2>
+    <table class="rv">
+      <caption class="sr-only">Experience, credentials and education</caption>
+      <tbody>
+        <tr><td>IT Intern</td><td>mPower, Inc. at NIH NIDDK</td><td>Bethesda, MD</td><td>Jun–Sep 2026</td></tr>
+        <tr><td>Student AI Intern</td><td>UMBC Division of IT</td><td>Baltimore, MD</td><td>Current</td></tr>
+        <tr><td>Intern</td><td>Radical AI</td><td class="soft">Remote</td><td class="soft">Earlier</td></tr>
+        <tr class="part"><th colspan="4" scope="colgroup">Credentials</th></tr>
+        <tr><td>Security+ (SY0-701)</td><td>CompTIA</td><td class="soft">Certified</td><td>Feb 2026</td></tr>
+        <tr><td>AI Fluency and Claude 101</td><td>Anthropic Academy</td><td class="soft">Completed</td><td>Jun 2026</td></tr>
+        <tr><td>Solutions Architect Associate</td><td>AWS</td><td class="soft">In progress</td><td>Fall 2026</td></tr>
+        <tr class="part"><th colspan="4" scope="colgroup">Education</th></tr>
+        <tr><td>Computer Science and Cybersecurity</td><td>UMBC</td><td>Baltimore, MD</td><td>May 2027</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="stack wrap" aria-labelledby="stack-h">
+    <figure class="slow rv">
+      <img src="img/139-server-room-01.jpg" width="1800" height="1350" alt="Rows of glass-fronted server racks in a white server room" loading="lazy">
+      <figcaption>Racks and cabling: the kind of room my automations end up talking to.</figcaption>
+    </figure>
+    <div>
+      <h2 id="stack-h" class="rv">What I work in</h2>
+      <ul class="skills rv">
+        <li>Python</li>
+        <li>TypeScript</li>
+        <li>LLM agents</li>
+        <li>Security</li>
+        <li>Workflow automation</li>
+        <li>AWS</li>
+      </ul>
+    </div>
+  </section>
+
+  <figure class="bleed slow rv">
+    <img src="img/umbc-albin-o-kuhn-library.jpg" width="1920" height="1194" alt="The Albin O. Kuhn Library at UMBC, a glass and stone drum rising above a tree-lined lawn, with a path leading to its entrance" loading="lazy" style="object-position:center 42%">
+    <figcaption class="wrap">The Albin O. Kuhn Library at UMBC, Catonsville, where I study and work for the Division of IT.</figcaption>
+  </figure>
+
+  <section class="about wrap" aria-labelledby="about-h">
+    <h2 id="about-h" class="rv">About</h2>
+    <p class="story rv">I study computer science and cybersecurity at <span class="hl hl-m">UMBC</span>, and I work there as a student AI intern building language-model tools and automation for the Division of IT. In the summer of 2026 I joined the IT team at <span class="hl hl-m">NIH NIDDK</span>, where I shipped an outage notification system and a help desk assistant that answers differently depending on who is asking. I earned Security+ in February 2026 and I am working toward AWS Solutions Architect. On my own time I build things that keep running without me: a futures trading system, an agent bridge, a client follow-up SaaS, an open-source PHI de-identifier. I founded and lead Revival Campus Fellowship at UMBC. U.S. citizen, clearance-eligible, graduating May 2027.</p>
+    <p class="ask rv"><a href="#contact">I&rsquo;d like to hear about your team.</a></p>
+  </section>
+
+  <figure class="bleed slow rv">
+    <img src="img/baltimore-inner-harbor-skyline-night-panorama.jpg" width="1800" height="440" alt="Panorama of the Baltimore Inner Harbor skyline at night, seen from Federal Hill" loading="lazy" style="height:auto;aspect-ratio:1800/440">
+    <figcaption class="wrap">Baltimore at night. Open to remote roles or anywhere in the DMV.</figcaption>
+  </figure>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h" class="wrap rv">Contact</h2>
+    <p class="contact__note wrap rv">Open to new-grad roles from May 2027, in the DMV or remote.</p>
+    <a class="crow wrap" href="Paul_Adejayan_Resume.pdf">Résumé</a>
+    <a class="crow wrap" href="https://www.linkedin.com/in/paul-adejayan-6b0719217">LinkedIn</a>
+    <a class="crow wrap" href="https://github.com/PaulAdejayan">GitHub</a>
+    <a class="crow wrap hello" href="mailto:pauladejayan@gmail.com" aria-label="Email Paul Adejayan"><span>Say hello<span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg></span></span></a>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <div class="cols">
+    <div><h3>Paul Adejayan</h3><ul><li>Computer science and cybersecurity</li><li>UMBC, class of 2027</li><li>Baltimore, Maryland</li></ul></div>
+    <div><h3>On this page</h3><ul><li><a href="#work">Work</a></li><li><a href="#phi">PHI Scrubber demo</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div><h3>Elsewhere</h3><ul><li><a href="Paul_Adejayan_Resume.pdf">Résumé (PDF)</a></li><li><a href="mailto:pauladejayan@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/paul-adejayan-6b0719217">LinkedIn</a></li><li><a href="https://github.com/PaulAdejayan">GitHub</a></li></ul></div>
+    <div><h3>Photographs</h3><p class="credits">Albin O. Kuhn Library by Tim Menzies, CC BY-SA 2.0. NIH Gateway Center by G. Edward Johnson, CC BY 4.0. Server room by Indrajit Das, CC BY-SA 3.0. Baltimore skyline by Joe Ravi, CC BY-SA 3.0. All via Wikimedia Commons.</p></div>
+  </div>
+  <div>
+    <svg class="mark" viewBox="0 0 1000 182" role="img" aria-label="Paul Adejayan"><text x="0" y="128" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="168">Paul Adejayan</text></svg>
+    <p class="legal">© 2026 Paul Adejayan</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('js');
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('ready')));
+
+  /* ---- Work ledger: five featured, strongest and most verifiable first ---- */
+  const work = [
+    { n:'PHI Scrubber', k:'Open-source privacy tool', y:'2026',
+      d:'Detects and replaces the 18 HIPAA Safe Harbor identifiers in clinical free text. A regex stage handles structured IDs, a spaCy model finds people, places and organizations, and keyed date shifting keeps intervals intact. CLI and library, 56 tests, MIT licensed.',
+      t:'Python · spaCy · pytest · try it below',
+      u:'https://github.com/PaulAdejayan/phi-scrubber', ul:'Source on GitHub, MIT, 56 tests in CI' },
+    { n:'Outage broadcasting system', k:'IT automation, NIH NIDDK', y:'2026',
+      d:'One tracked record drives both the notices users receive and a status page that updates itself. The status (Investigating, Active, Scheduled maintenance, Resolved) decides which notice goes out, and sent flags stop duplicates.',
+      t:'Internship project · automation and security' },
+    { n:'Role-aware Help Desk assistant', k:'AI assistant, NIH NIDDK', y:'2026',
+      d:'A support chatbot that works out whether you are a regular user or Help Desk staff, then answers from the matching knowledge source. Users get safe steps and the support portal; staff get internal troubleshooting that never reaches the wrong audience.',
+      t:'Internship project · access control by role' },
+    { n:'ScalpStation', k:'Autonomous trading system', y:'2026',
+      d:'An event-driven futures trading system: a strategy engine, a broker execution layer, a risk and regime stack, live charting over WebSockets and a Telegram control bridge.',
+      t:'Python · TypeScript · WebSockets' },
+    { n:'ClientPulse', k:'SaaS, intake and follow-up', y:'2026',
+      d:'A platform that takes in new clients and handles the follow-up on its own, with text messages, email, payments and scheduled jobs.',
+      t:'Turso · Twilio · Stripe · Resend · Vercel',
+      u:'https://clientpulse.dev', ul:'Live at clientpulse.dev' }
+  ];
+  const rows = document.getElementById('rows'), swap = document.getElementById('swap'), preview = document.getElementById('preview');
+  const esc = (s) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const proof = (p, cls) => p.u ? `<p class="${cls}"><a href="${esc(p.u)}">${esc(p.ul)} &rarr;</a></p>` : '';
+  work.forEach((p, i) => {
+    const li = document.createElement('li'); li.className = 'row rv';
+    li.innerHTML = `<button type="button" aria-describedby="d${i}"><span class="name">${esc(p.n)}</span><span class="kind">${esc(p.k)}</span><span class="yr">${p.y}</span></button><p class="desc" id="d${i}">${esc(p.d)}</p>` + proof(p, 'pf proof');
+    rows.appendChild(li);
+    const show = () => {
+      rows.classList.add('dim'); rows.querySelectorAll('.row').forEach(r => r.classList.remove('on')); li.classList.add('on');
+      swap.style.opacity = 0;
+      setTimeout(() => { swap.innerHTML = `<h3>${esc(p.n)}</h3><p>${esc(p.d)}</p>` + proof(p, 'proof') + `<p class="tags">${esc(p.t)}</p>`; swap.style.opacity = 1; }, reduce ? 0 : 150);
+      preview.style.top = Math.max(96, li.offsetTop + 96 - 40) + 'px';
+    };
+    li.querySelector('button').addEventListener('mouseenter', show);
+    li.querySelector('button').addEventListener('focus', show);
+    li.querySelector('button').addEventListener('click', show);
+  });
+  rows.addEventListener('mouseleave', () => rows.classList.remove('dim'));
+  swap.innerHTML = `<h3>${esc(work[0].n)}</h3><p>${esc(work[0].d)}</p>` + proof(work[0], 'proof') + `<p class="tags">${esc(work[0].t)}</p>`;
+
+  /* ---- PHI demo ---- */
+  const note = document.getElementById('note'), out = document.getElementById('out'), count = document.getElementById('count'), noun = document.getElementById('noun');
+  // A name token. [A-Z][a-z]+ was the original and it leaked three ways:
+  // all-caps notes (PT MARIA DELGADO) matched nothing, CJK and Arabic names
+  // matched nothing, and accented names half-matched - "Wisniewska" with a
+  // Polish s came out as [PATIENT_1] followed by the rest of the surname in
+  // clear, which looks like it worked. \p{Lu} plus any letter covers cased
+  // scripts; the script classes cover the ones with no case at all.
+  // Name tokens for cased scripts (Latin, Cyrillic, Greek) plus non-cased scripts (CJK, Arabic, etc).
+  const UP = "[\\p{Lu}\\p{sc=Han}\\p{sc=Arabic}\\p{sc=Hebrew}\\p{sc=Hiragana}\\p{sc=Katakana}\\p{sc=Hangul}\\p{sc=Devanagari}\\p{sc=Thai}]";
+  const N = "(?:" + UP + "[\\p{L}\\p{M}'\u2019\\-]*)";
+  const NAMES = N + "(?:[ \\t]+" + N + "){0,2}";
+  // Clinical prose words that can't be part of a name - stops greedy absorption of
+  // "Pt complains of chest pain" and "Dr. Alan Brooks on 03/14".
+  const STOP = "(?:on|at|for|with|from|by|in|to|of|about|after|before|during|since|while|complains|complained|reports|reported|presents|presented|returns|returned|arrived|seen|visited|called|received|requires|needs|stated|states|denies|admits|admitted|noted|reviewed|reviews|examined|discharged|treated|prescribed|consulted|ordered|assessed|evaluated|was|were|is|are|has|had|have|who|that|which|came|today|yesterday|tomorrow|the|a|an)\\b";
+  // New-entity prefix words - stop here so each person gets its own match
+  // ("Dr. Jane Smith and Dr. Alan Brooks" => two separate DOCTOR spans).
+  const PREFIX_STOP = "(?:Pt|PT|Patient|PATIENT|Dr|DR|Mr|MR|Mrs|MRS|Ms|MS)\\.?\\b";
+  // Connectors can only appear inside SEP, never as standalone name words -
+  // prevents "Jane Smith and" from being matched as a 3-word name.
+  const CONNECTOR = "(?:and|or)\\b";
+  // Any-case name word that isn't a stop word, prefix, or connector.
+  const WORD = "(?!(?:" + STOP + "|" + PREFIX_STOP + "|" + CONNECTOR + "))[\\p{L}][\\p{L}\\p{M}'\u2019\\-]*";
+  // Same but must start with a capital (or non-cased-script char).
+  const CAP_W = "(?!(?:" + STOP + "|" + PREFIX_STOP + "|" + CONNECTOR + "))" + UP + "[\\p{L}\\p{M}'\u2019\\-]*";
+  // Between name words: ", and " / ", or " / " and " / "," / plain space.
+  const SEP = "(?:\\s*,\\s*(?:and|or)\\s+|\\s+(?:and|or|&)\\s+|\\s*,\\s+|\\s+)";
+  // Name sequence: starts cap, OR has leading lowercase but with a cap further in.
+  // Max 7 words. Requires at least one capital word so pure prose can't scrub.
+  const NAMES_LOOSE = "(?:" +
+    CAP_W + "(?:" + SEP + WORD + "){0,6}" +
+    "|" +
+    WORD + "(?:" + SEP + WORD + "){0,2}" + SEP + CAP_W + "(?:" + SEP + WORD + "){0,4}" +
+  ")";
+  const rx = (src) => new RegExp(src, "gu");
+  // Common clinical date formats: 3/14/2026, 03-14-2026, 03.14.2026, 2026-03-14 (ISO).
+  const DATE_RE = /\b(?:\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4}|(?:19|20)\d{2}-\d{1,2}-\d{1,2})\b/g;
+  // Phone: optional country code, optional (###), separators are space/dash/dot or none for bare 10-digit.
+  // Bare 10-digit requires no adjacent digit to avoid matching inside longer IDs.
+  const PHONE_RE = /(?<!\d)(?:\+?1[\s.\-]?)?\(?\b\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}\b(?!\d)/g;
+  const rules = [
+    ['EMAIL', /[\w.+-]+@[\w-]+\.[\w.]+/g],
+    ['SSN', /\b\d{3}-\d{2}-\d{4}\b/g],
+    ['PHONE', PHONE_RE],
+    ['MRN', /\bMRN[:#\s]*\d{5,10}\b/gi],
+    ['DATE', DATE_RE],
+    ['ADDRESS', rx("\\b\\d{1,5}[ \\t]+(?:" + N + "[ \\t]+){1,3}(?:Street|St|Avenue|Ave|Road|Rd|Drive|Dr|Lane|Ln|Court|Ct|Boulevard|Blvd)\\b\\.?")],
+    ['PROVIDER', rx("\\b(?:Dr|DR|Mr|MR|Mrs|MRS|Ms|MS)\\.?[ \\t]+" + NAMES_LOOSE)],
+    ['PATIENT', rx("\\b(?:Pt|PT|Patient|PATIENT)[ \\t]+" + NAMES_LOOSE)],
+    ['FACILITY', rx("\\b(?:" + N + "[ \\t]+){1,3}(?:Clinic|Hospital|Medical Center)\\b")]
+  ];
+  // Prefix strippers for the two categories that can list multiple people
+  // ("Pt A and B", "Dr. X and Dr. Y"). Splitting into separate IDs makes
+  // the output read like a real de-identified note instead of lumping
+  // multiple patients into one [PATIENT_1].
+  const PREFIX_RE = {
+    PATIENT: /^(?:Pt|PT|Patient|PATIENT)[ \t]+/,
+    PROVIDER: /^(?:Dr|DR|Mr|MR|Mrs|MRS|Ms|MS)\.?[ \t]+/,
+  };
+  // Split on comma, "and", "or", "&" (with surrounding whitespace captured
+  // so we can keep the separator visible in the output). Matches ", and " too.
+  const SPLIT_RE = /(\s*,\s*(?:and|or)\s+|\s+(?:and|or)\s+|\s*,\s+|\s+&\s+)/g;
+  const scrub = () => {
+    const text = note.value; const spans = [];
+    rules.forEach(([tag, re]) => { re.lastIndex = 0; let m; while ((m = re.exec(text))) spans.push({ s:m.index, e:m.index + m[0].length, tag, raw:m[0] }); });
+    spans.sort((a, b) => a.s - b.s || (b.e - b.s) - (a.e - a.s));
+    const keep = []; let end = -1;
+    for (const sp of spans) if (sp.s >= end) { keep.push(sp); end = sp.e; }
+    const seen = {}, ids = {}; let html = '', pos = 0, emitted = 0;
+    for (const sp of keep) {
+      const prefRe = PREFIX_RE[sp.tag];
+      if (prefRe) {
+        const m = sp.raw.match(prefRe);
+        const pre = m ? m[0] : '';
+        html += esc(text.slice(pos, sp.s)) + esc(pre);
+        pos = sp.s + pre.length;
+        // Split the name part by connectors; parts alternates [name, sep, name, sep, ...].
+        const parts = sp.raw.slice(pre.length).split(SPLIT_RE);
+        for (let i = 0; i < parts.length; i++) {
+          if (i % 2 === 1) { html += esc(parts[i]); continue; }
+          // Name segment. For PROVIDER lists ("Dr. X and Dr. Y"), the second
+          // segment may itself start with "Dr. " - keep that visible too.
+          let seg = parts[i];
+          const inner = seg.match(prefRe);
+          if (inner) { html += esc(inner[0]); seg = seg.slice(inner[0].length); }
+          const key = sp.tag + '|' + seg.toLowerCase().trim();
+          if (!ids[key]) { seen[sp.tag] = (seen[sp.tag] || 0) + 1; ids[key] = seen[sp.tag]; }
+          html += `<mark>[${sp.tag}_${ids[key]}]</mark>`;
+          emitted++;
+        }
+        pos = sp.e;
+      } else {
+        html += esc(text.slice(pos, sp.s)); pos = sp.s;
+        const key = sp.tag + '|' + sp.raw;
+        if (!ids[key]) { seen[sp.tag] = (seen[sp.tag] || 0) + 1; ids[key] = seen[sp.tag]; }
+        html += `<mark>[${sp.tag}_${ids[key]}]</mark>`;
+        emitted++;
+        pos = sp.e;
+      }
+    }
+    html += esc(text.slice(pos));
+    out.innerHTML = html; count.textContent = emitted;
+    noun.textContent = emitted === 1 ? 'identifier' : 'identifiers';
+  };
+  note.addEventListener('input', scrub); scrub();
+
+  /* ---- Reveals ---- */
+  const els = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries) => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const sib = [...e.target.parentElement.querySelectorAll(':scope > .rv')];
+    const i = Math.max(0, sib.indexOf(e.target));
+    e.target.style.transitionDelay = (Math.min(i, 8) * 70) + 'ms';
+    e.target.classList.add('in'); io.unobserve(e.target);
+  }), { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(e => io.observe(e));
+})();
+</script>
+</body>
+</html>
