@@ -13,13 +13,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Paul Adejayan — automation where security meets AI">
 <meta property="og:description" content="CS and cybersecurity at UMBC, graduating May 2027. Security+ certified, clearance-eligible. Builder of PHI Scrubber, ScalpStation, ClientPulse.">
-<meta property="og:image" content="img/baltimore-inner-harbor-skyline-night-panorama.jpg">
+<meta property="og:image" content="https://pauladejayan.github.io/img/baltimore-inner-harbor-skyline-night-panorama.jpg">
 <meta property="og:image:width" content="1800">
 <meta property="og:image:height" content="440">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Paul Adejayan — automation where security meets AI">
 <meta name="twitter:description" content="CS and cybersecurity at UMBC, graduating May 2027. Security+ certified, clearance-eligible.">
-<meta name="twitter:image" content="img/baltimore-inner-harbor-skyline-night-panorama.jpg">
+<meta name="twitter:image" content="https://pauladejayan.github.io/img/baltimore-inner-harbor-skyline-night-panorama.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-h
 .hero h1 .ln:last-child{text-align:right}
 .hero__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
 .hero__foot p{margin:0;font-size:22px;line-height:1.35;max-width:44ch}
-.hero__foot p .creds{display:block;margin-top:10px;font-size:16px;line-height:1.45;opacity:.92}
+.hero__foot p .creds{display:block;margin-top:10px;font-size:16px;line-height:1.45}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;background:var(--ink);color:#fff;text-decoration:none;font-size:16px;font-weight:500;white-space:nowrap;transition:transform .3s var(--ease),background .3s}
 .btn:active{transform:translateY(0)}
@@ -121,9 +121,9 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 /* ---------- Engineering artifacts (SVG drawn for a dark README, so each
    sits on its own light panel to stay legible on cream and red) ---------- */
 .art{margin:0;min-width:0}  /* grid items default to min-width:auto; the wide SVG would stretch the track */
-.art .panel{background:#fafafa;padding:clamp(14px,2.4vw,28px);overflow-x:auto}
-/* min-width keeps the diagram's 11px labels readable on a phone; the panel
-   scrolls, the page does not. */
+.art .panel{display:block;overflow-x:auto}
+/* min-width keeps the 12px labels readable on a phone; the panel scrolls, the
+   page does not, and the panel is a link so a tap opens the SVG full size. */
 .art img{width:100%;height:auto;min-width:720px}
 .art figcaption{padding-block:14px 0;font-size:16px;color:var(--muted);max-width:60ch}
 .mono{font-family:ui-monospace,SFMono-Regular,'Cascadia Code','Consolas',monospace;font-size:var(--step-small);line-height:1.65;color:var(--ink);background:var(--surface);border-left:3px solid var(--red);padding:14px 16px;margin:18px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
@@ -149,10 +149,7 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .lineup .soft{color:#4f3406}
 
 /* ---------- Stack: photo + skills ---------- */
-.stack{display:grid;grid-template-columns:5fr 7fr;gap:64px;padding-block:160px;align-items:center}
-.stack figure{margin:0}
-.stack img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
-.stack figcaption{font-size:16px;color:var(--muted);margin-top:12px}
+.stack{padding-block:140px}
 .stack h2{font-size:var(--step-head);margin-bottom:28px}
 .skills{list-style:none;margin:0;padding:0;font-family:var(--display);font-size:clamp(40px,4.6vw,76px);line-height:1.02;letter-spacing:-.02em}
 .skills li{transition:transform .4s var(--ease),color .3s}
@@ -175,7 +172,7 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .contact__note{margin:0;padding-bottom:44px;font-size:var(--step-lead);line-height:1.3;max-width:30ch}
 .crow{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;min-height:150px;padding-block:0 26px;font-family:var(--display);font-size:clamp(44px,6vw,88px);line-height:1;letter-spacing:-.02em;text-decoration:none}
 .crow:nth-of-type(even){background:#c9121f}
-.crow small{font-family:var(--text);font-size:var(--step-small);letter-spacing:0;opacity:.85;padding-bottom:.6em;white-space:nowrap}
+.crow small{font-family:var(--text);font-size:var(--step-small);letter-spacing:0;padding-bottom:.6em;white-space:nowrap}
 a.crow{transition:background .3s}
 .crow .arrow{display:inline-grid;place-items:center;width:.9em;height:.9em;border-radius:50%;background:#fff;color:var(--red);margin-left:24px;transition:transform .35s var(--ease)}
 .crow .arrow svg{width:.4em;height:.4em}
@@ -228,8 +225,10 @@ a.crow:active{background:var(--maroon)}
 .js .hero .fade{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease) .45s,transform .8s var(--ease) .45s}
 .js.ready .hero h1 .ln > span{transform:none}
 .js.ready .hero .fade{opacity:1;transform:none}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.rv.in{opacity:1;transform:none}
+/* Gated on .js like the hero rules: without it, a single script error leaves
+   every revealed section invisible. */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
 .slow img{transform:scale(1.08);transition:transform 2.4s var(--ease)}
 .slow.in img{transform:scale(1)}
 
@@ -243,8 +242,6 @@ a.crow:active{background:var(--maroon)}
   .row .pf{display:block;padding:0 0 18px}
   .rows.dim .row button{color:var(--ink)}
   .demo__head,.panes{grid-template-columns:1fr}
-  .stack{grid-template-columns:1fr}
-  .stack img{aspect-ratio:16/10}
 }
 @media (max-width:640px){
   :root{--gutter:max(16px,env(safe-area-inset-left,0px));--gutter-r:max(16px,env(safe-area-inset-right,0px))}
@@ -354,7 +351,7 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
   </section>
 
   <figure class="art wrap rv">
-    <div class="panel"><img src="img/architecture.svg" width="980" height="480" alt="The phi-scrubber pipeline: a clinical note fans out to three detectors — regex patterns, spaCy named-entity recognition and a hospital gazetteer — each emitting start, end, category and confidence spans; the spans go through span merge and a tag assigner, dates pass through a SHA-256 keyed shifter, and replacements are applied right-to-left to produce scrubbed text plus an audit JSON." loading="lazy"></div>
+    <a class="panel" href="img/architecture.svg"><img src="img/architecture.svg" width="1080" height="580" alt="The phi-scrubber pipeline, from a clinical note through detection and span resolution to scrubbed text and an audit log." loading="lazy"></a>
     <figcaption>How PHI Scrubber works end to end. Three detectors emit spans, the merge step resolves overlaps by longest match, the tag assigner keeps one person one tag across the document, and dates are shifted by a per-patient offset so intervals survive.</figcaption>
     <p class="mono">detectors (regex · spaCy NER · gazetteer) &rarr; span merge &rarr; tag assigner &rarr; date shifter &rarr; scrubbed text + audit JSON</p>
   </figure>
@@ -377,11 +374,12 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
     </table>
   </section>
 
+  <figure class="art wrap rv">
+    <a class="panel" href="img/demo.svg"><img src="img/demo.svg" width="900" height="660" alt="phi-scrubber run from the command line on a fictional discharge summary, replacing fourteen identifiers with bracketed tags." loading="lazy"></a>
+    <figcaption>The CLI on a fictional discharge summary. Fourteen spans replaced, one audit record per span.</figcaption>
+  </figure>
+
   <section class="stack wrap" aria-labelledby="stack-h">
-    <figure class="art rv">
-      <div class="panel"><img src="img/demo.svg" width="920" height="720" alt="A terminal window showing phi-scrubber run against a fictional discharge summary: the input note with name, date of birth, MRN, address, phone, email, admission and discharge dates, provider and insurance ID, then the same note with each identifier replaced by a bracketed tag such as PATIENT_1, DATE_SHIFTED, PHONE and HOSPITAL_1, followed by a count of fourteen spans replaced." loading="lazy"></div>
-      <figcaption>The CLI on a fictional discharge summary. Fourteen spans replaced, one audit record per span.</figcaption>
-    </figure>
     <div>
       <h2 id="stack-h" class="rv">What I work in</h2>
       <ul class="skills rv">

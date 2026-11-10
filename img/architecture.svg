@@ -1,93 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 480" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="13">
+<!-- Drawn for pauladejayan.github.io. Colours are the site's own tokens, written
+     out literally because an SVG loaded through <img> inherits no CSS. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 580" role="img"
+     aria-label="The phi-scrubber pipeline, from a clinical note through detection and span resolution to scrubbed text and an audit log"
+     font-family="'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif">
+  <title>The phi-scrubber pipeline</title>
   <defs>
-    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#6c7086"/>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#2a1110"/>
     </marker>
-    <filter id="card" x="-5%" y="-5%" width="110%" height="115%">
-      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-opacity="0.15"/>
-    </filter>
   </defs>
 
-  <rect width="980" height="480" fill="#fafafa"/>
+  <rect width="1080" height="580" fill="#e2dccf"/>
 
-  <!-- Title -->
-  <text x="490" y="36" text-anchor="middle" fill="#1e293b" font-weight="700" font-size="18">phi-scrubber pipeline</text>
-  <text x="490" y="56" text-anchor="middle" fill="#64748b" font-size="12">clinical text → scrubbed text + audit log</text>
+  <!-- Masthead -->
+  <text x="44" y="58" fill="#2a1110" font-family="'Instrument Serif','Times New Roman',serif" font-size="34">The phi-scrubber pipeline</text>
+  <text x="44" y="84" fill="#6b524c" font-size="14" font-family="ui-monospace,'Cascadia Code','Consolas',monospace">clinical note &#8594; scrubbed text + audit JSON</text>
+  <line x1="44" y1="104" x2="1036" y2="104" stroke="#2a1110" stroke-width="1.5"/>
+
+  <!-- Phase rules -->
+  <line x1="268" y1="128" x2="268" y2="470" stroke="#4a6f84" stroke-width="1"/>
+  <line x1="578" y1="128" x2="578" y2="470" stroke="#4a6f84" stroke-width="1"/>
+  <line x1="838" y1="128" x2="838" y2="470" stroke="#4a6f84" stroke-width="1"/>
+  <text x="284" y="144" fill="#2a1110" font-size="12" letter-spacing="2.4">1 &#183; DETECT</text>
+  <text x="594" y="144" fill="#2a1110" font-size="12" letter-spacing="2.4">2 &#183; RESOLVE</text>
+  <text x="854" y="144" fill="#2a1110" font-size="12" letter-spacing="2.4">3 &#183; APPLY</text>
 
   <!-- Input -->
-  <rect x="20" y="100" width="150" height="60" rx="8" fill="#fff" stroke="#cbd5e1" filter="url(#card)"/>
-  <text x="95" y="125" text-anchor="middle" fill="#0f172a" font-weight="600">clinical note</text>
-  <text x="95" y="143" text-anchor="middle" fill="#64748b" font-size="11">.txt or FHIR DocumentReference</text>
+  <rect x="44" y="258" width="186" height="62" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="60" y="286" fill="#2a1110" font-size="16" font-weight="500">clinical note</text>
+  <text x="60" y="306" fill="#6b524c" font-size="12">.txt or FHIR DocumentReference</text>
 
-  <!-- Detector lane -->
-  <rect x="220" y="80" width="220" height="290" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-dasharray="4,3"/>
-  <text x="330" y="100" text-anchor="middle" fill="#1e40af" font-weight="700">Detectors</text>
+  <!-- Detectors -->
+  <rect x="292" y="174" width="248" height="58" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="308" y="198" fill="#2a1110" font-size="16" font-weight="500">regex detectors</text>
+  <text x="308" y="218" fill="#6b524c" font-size="12">phone · email · SSN · MRN · dates · ZIP · IP</text>
 
-  <rect x="240" y="115" width="180" height="46" rx="6" fill="#fff" stroke="#bfdbfe" filter="url(#card)"/>
-  <text x="330" y="135" text-anchor="middle" fill="#1e293b" font-weight="600">regex detectors</text>
-  <text x="330" y="151" text-anchor="middle" fill="#64748b" font-size="11">phone, email, SSN, MRN, dates …</text>
+  <rect x="292" y="248" width="248" height="58" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="308" y="272" fill="#2a1110" font-size="16" font-weight="500">spaCy NER</text>
+  <text x="308" y="292" fill="#6b524c" font-size="12">PERSON · ORG · GPE · falls back if absent</text>
 
-  <rect x="240" y="173" width="180" height="46" rx="6" fill="#fff" stroke="#bfdbfe" filter="url(#card)"/>
-  <text x="330" y="193" text-anchor="middle" fill="#1e293b" font-weight="600">spaCy NER</text>
-  <text x="330" y="209" text-anchor="middle" fill="#64748b" font-size="11">PERSON · ORG · GPE · graceful fallback</text>
+  <rect x="292" y="322" width="248" height="58" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="308" y="346" fill="#2a1110" font-size="16" font-weight="500">gazetteer</text>
+  <text x="308" y="366" fill="#6b524c" font-size="12">hospitals + city/state seed list</text>
 
-  <rect x="240" y="231" width="180" height="46" rx="6" fill="#fff" stroke="#bfdbfe" filter="url(#card)"/>
-  <text x="330" y="251" text-anchor="middle" fill="#1e293b" font-weight="600">gazetteer</text>
-  <text x="330" y="267" text-anchor="middle" fill="#64748b" font-size="11">hospitals + city-state seed list</text>
+  <text x="292" y="412" fill="#6b524c" font-size="12">each detector emits</text>
+  <text x="292" y="434" fill="#952625" font-size="13" font-family="ui-monospace,'Cascadia Code','Consolas',monospace">(start, end, category, confidence)</text>
 
-  <text x="330" y="305" text-anchor="middle" fill="#64748b" font-size="11" font-style="italic">each emits</text>
-  <text x="330" y="320" text-anchor="middle" fill="#1e293b" font-family="'SF Mono','Cascadia Code',monospace" font-size="11">(start, end, category, confidence)</text>
-  <text x="330" y="350" text-anchor="middle" fill="#64748b" font-size="11" font-style="italic">spans</text>
+  <!-- Resolve -->
+  <rect x="602" y="174" width="212" height="62" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="618" y="198" fill="#2a1110" font-size="16" font-weight="500">span merge</text>
+  <text x="618" y="217" fill="#6b524c" font-size="12">longest match wins, then</text>
+  <text x="618" y="231" fill="#6b524c" font-size="12">category priority</text>
 
-  <!-- Merge -->
-  <rect x="475" y="160" width="170" height="60" rx="8" fill="#fff" stroke="#cbd5e1" filter="url(#card)"/>
-  <text x="560" y="183" text-anchor="middle" fill="#0f172a" font-weight="600">span merge</text>
-  <text x="560" y="200" text-anchor="middle" fill="#64748b" font-size="11">longest-match wins;</text>
-  <text x="560" y="214" text-anchor="middle" fill="#64748b" font-size="11">category priority tiebreak</text>
+  <rect x="602" y="266" width="212" height="62" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="618" y="290" fill="#2a1110" font-size="16" font-weight="500">tag assigner</text>
+  <text x="618" y="309" fill="#6b524c" font-size="12">one person, one tag,</text>
+  <text x="618" y="323" fill="#6b524c" font-size="12">whole document</text>
 
-  <!-- Tag assigner -->
-  <rect x="475" y="250" width="170" height="60" rx="8" fill="#fff" stroke="#cbd5e1" filter="url(#card)"/>
-  <text x="560" y="273" text-anchor="middle" fill="#0f172a" font-weight="600">tag assigner</text>
-  <text x="560" y="290" text-anchor="middle" fill="#64748b" font-size="11">per-doc consistency;</text>
-  <text x="560" y="304" text-anchor="middle" fill="#64748b" font-size="11">PATIENT_1 / DOCTOR_1 / …</text>
+  <rect x="602" y="358" width="212" height="62" fill="#e0a912" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="618" y="382" fill="#2a1110" font-size="16" font-weight="500">date shifter</text>
+  <text x="618" y="401" fill="#4f3406" font-size="12">SHA-256(patient_id) &#8594; ±180d,</text>
+  <text x="618" y="415" fill="#4f3406" font-size="12">intervals preserved</text>
 
-  <!-- Date shifter -->
-  <rect x="475" y="65" width="170" height="60" rx="8" fill="#fef3c7" stroke="#fcd34d" filter="url(#card)"/>
-  <text x="560" y="88" text-anchor="middle" fill="#0f172a" font-weight="600">date shifter</text>
-  <text x="560" y="105" text-anchor="middle" fill="#64748b" font-size="11">SHA-256(patient_id) → ±180d</text>
-  <text x="560" y="119" text-anchor="middle" fill="#64748b" font-size="11">intervals preserved</text>
+  <!-- Apply + outputs -->
+  <rect x="862" y="266" width="174" height="62" fill="#f3ece0" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="878" y="290" fill="#2a1110" font-size="16" font-weight="500">apply</text>
+  <text x="878" y="309" fill="#6b524c" font-size="12">right to left, so</text>
+  <text x="878" y="323" fill="#6b524c" font-size="12">offsets stay valid</text>
 
-  <!-- Apply -->
-  <rect x="690" y="160" width="170" height="60" rx="8" fill="#fff" stroke="#cbd5e1" filter="url(#card)"/>
-  <text x="775" y="183" text-anchor="middle" fill="#0f172a" font-weight="600">apply right-to-left</text>
-  <text x="775" y="200" text-anchor="middle" fill="#64748b" font-size="11">offsets stay valid</text>
-  <text x="775" y="214" text-anchor="middle" fill="#64748b" font-size="11">across replacements</text>
+  <rect x="862" y="174" width="174" height="56" fill="#2a1110"/>
+  <text x="878" y="198" fill="#f3ece0" font-size="16" font-weight="500">scrubbed text</text>
+  <text x="878" y="217" fill="#cdbcaf" font-size="12" font-family="ui-monospace,'Consolas',monospace">stdout or -o</text>
 
-  <!-- Outputs -->
-  <rect x="690" y="65" width="170" height="60" rx="8" fill="#dcfce7" stroke="#86efac" filter="url(#card)"/>
-  <text x="775" y="88" text-anchor="middle" fill="#0f172a" font-weight="600">scrubbed text</text>
-  <text x="775" y="105" text-anchor="middle" fill="#64748b" font-size="11">stdout or -o output.txt</text>
+  <rect x="862" y="364" width="174" height="56" fill="#2a1110"/>
+  <text x="878" y="388" fill="#f3ece0" font-size="16" font-weight="500">audit JSON</text>
+  <text x="878" y="407" fill="#cdbcaf" font-size="12" font-family="ui-monospace,'Consolas',monospace">--audit audit.json</text>
 
-  <rect x="690" y="250" width="170" height="60" rx="8" fill="#dcfce7" stroke="#86efac" filter="url(#card)"/>
-  <text x="775" y="273" text-anchor="middle" fill="#0f172a" font-weight="600">audit JSON</text>
-  <text x="775" y="290" text-anchor="middle" fill="#64748b" font-size="11">--audit audit.json</text>
-  <text x="775" y="304" text-anchor="middle" fill="#64748b" font-size="11">never publish alongside</text>
+  <!-- Flow -->
+  <path d="M230 282 L284 203" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M230 289 L284 277" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M230 296 L284 351" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
 
-  <!-- Arrows -->
-  <line x1="170" y1="130" x2="240" y2="138" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="170" y1="130" x2="240" y2="196" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="170" y1="130" x2="240" y2="254" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M540 277 L594 205" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M540 212 L562 212 L562 389 L594 389" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="548" y="248" fill="#6b524c" font-size="12">spans</text>
+  <text x="570" y="352" fill="#6b524c" font-size="12">dates</text>
 
-  <line x1="425" y1="190" x2="475" y2="190" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="560" y1="220" x2="560" y2="250" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="645" y1="280" x2="690" y2="190" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="645" y1="190" x2="690" y2="190" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="645" y1="95" x2="690" y2="95" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="775" y1="220" x2="775" y2="250" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="775" y1="160" x2="775" y2="125" stroke="#6c7086" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M708 236 L708 262" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M814 297 L856 297" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M814 389 L838 389 L838 320 L856 310" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="722" y="256" fill="#6b524c" font-size="12">merged</text>
+  <text x="824" y="288" fill="#6b524c" font-size="12">tags</text>
+
+  <path d="M949 266 L949 234" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M949 328 L949 360" fill="none" stroke="#2a1110" stroke-width="1.5" marker-end="url(#a)"/>
 
   <!-- Footer -->
-  <text x="490" y="430" text-anchor="middle" fill="#64748b" font-size="11">HIPAA Safe Harbor §164.514(b)(2) · regex + NER hybrid · MIT licensed</text>
-  <text x="490" y="450" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="600">Not sufficient as sole de-identification control · human reviewer still required</text>
+  <line x1="44" y1="500" x2="1036" y2="500" stroke="#2a1110" stroke-width="1.5"/>
+  <text x="44" y="524" fill="#6b524c" font-size="13">HIPAA Safe Harbor §164.514(b)(2) · regex + NER hybrid · MIT licensed</text>
+  <text x="44" y="548" fill="#952625" font-size="13" font-weight="600">Not sufficient as a sole de-identification control. A human reviewer is still required.</text>
 </svg>
