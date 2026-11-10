@@ -139,7 +139,7 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .demo .mono b{color:var(--mustard)}
 
 /* ---------- Full-bleed photograph ---------- */
-.bleed{margin:0;position:relative}
+.bleed{margin:0;position:relative;overflow:hidden}  /* .slow scales the photo to 1.08 until it reveals; without clipping that is 16px of page-wide overflow at 390px */
 .bleed img{width:100%;height:min(78svh,760px);object-fit:cover}
 .bleed figcaption{padding-block:14px 0;font-size:16px;color:var(--muted)}
 
@@ -350,7 +350,7 @@ a.crow:active{background:var(--maroon)}
     </div>
     <div class="demo__meta">
       <span><strong id="count">0</strong> <span id="noun">identifiers</span> replaced in your browser. Nothing is sent anywhere.</span>
-      <span>This demo uses patterns only. The real tool adds named-entity recognition, keyed date shifting and an 80-test suite run in CI. <a href="https://github.com/PaulAdejayan/phi-scrubber">Source on GitHub, MIT licensed</a></span>
+      <span>This demo uses patterns only. The real tool adds named-entity recognition, street-address detection and a 129-test suite run in CI. <a href="https://github.com/PaulAdejayan/phi-scrubber">Source on GitHub, MIT licensed</a></span>
     </div>
     <p class="mono rv">$ phi-scrubber tests/fixtures/sample_note.txt <b>--patient-id</b> pt_001
 $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit</b> audit.json
@@ -359,8 +359,8 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
 
   <figure class="art wrap rv">
     <a class="panel" href="img/architecture.svg"><img src="img/architecture.svg" width="1080" height="580" alt="The phi-scrubber pipeline, from a clinical note through detection and span resolution to scrubbed text and an audit log." loading="lazy"></a>
-    <figcaption>How PHI Scrubber works end to end. Three detectors emit spans, the merge step resolves overlaps by longest match, the tag assigner keeps one person one tag across the document, and dates are shifted by a per-patient offset so intervals survive.</figcaption>
-    <p class="mono">detectors (regex · spaCy NER · gazetteer) &rarr; span merge &rarr; tag assigner &rarr; date shifter &rarr; scrubbed text + audit JSON</p>
+    <figcaption>How PHI Scrubber works end to end. Three detectors emit spans, the merge step resolves overlaps by longest match, and the tag assigner keeps one person one tag across the document. Dates are removed outright rather than shifted, so intervals do not survive &mdash; one of the gaps the README documents.</figcaption>
+    <p class="mono">detectors (regex · spaCy NER · gazetteer) &rarr; span merge &rarr; tag assigner &rarr; apply right-to-left &rarr; scrubbed text + audit JSON</p>
   </figure>
 
   <section class="lineup wrap" id="experience" aria-labelledby="exp-h">
@@ -382,8 +382,8 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
   </section>
 
   <figure class="art wrap rv">
-    <a class="panel" href="img/demo.svg"><img src="img/demo.svg" width="900" height="660" alt="phi-scrubber run from the command line on a fictional discharge summary, replacing fourteen identifiers with bracketed tags." loading="lazy"></a>
-    <figcaption>The CLI on a fictional discharge summary. Fourteen spans replaced, one audit record per span.</figcaption>
+    <a class="panel" href="img/demo.svg"><img src="img/demo.svg" width="900" height="690" alt="phi-scrubber run from the command line on a fictional discharge summary, replacing twenty-one identifiers with bracketed tags." loading="lazy"></a>
+    <figcaption>The CLI on a fictional discharge summary, transcribed from a real run. Twenty-one spans replaced, one audit record per span.</figcaption>
   </figure>
 
   <section class="stack wrap" aria-labelledby="stack-h">
@@ -449,9 +449,9 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
   /* ---- Work ledger: five featured, strongest and most verifiable first ---- */
   const work = [
     { n:'PHI Scrubber', k:'Open-source privacy tool', y:'2026',
-      d:'Detects and replaces the 18 HIPAA Safe Harbor identifiers in clinical free text. A regex stage handles structured IDs, a spaCy model finds people, places and organizations, and keyed date shifting keeps intervals intact. CLI and library, 80 tests, MIT licensed.',
+      d:'Covers 14 of the 18 HIPAA Safe Harbor identifier categories in clinical free text, with the gaps documented rather than papered over. A regex stage handles structured IDs and street addresses, a spaCy model finds people, places and organizations, and a coverage table in the README cites the detector behind every category. CLI and library, 129 tests, MIT licensed.',
       t:'Python · spaCy · pytest · try it below',
-      u:'https://github.com/PaulAdejayan/phi-scrubber', ul:'Source on GitHub, MIT, 80 tests in CI' },
+      u:'https://github.com/PaulAdejayan/phi-scrubber', ul:'Source on GitHub, MIT, 129 tests in CI' },
     { n:'Outage broadcasting system', k:'IT automation, NIH NIDDK', y:'2026',
       d:'One tracked record drives both the notices users receive and a status page that updates itself. The status (Investigating, Active, Scheduled maintenance, Resolved) decides which notice goes out, and sent flags stop duplicates.',
       t:'Internship project · automation and security' },

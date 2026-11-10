@@ -1,54 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Drawn for pauladejayan.github.io. Colours are the site's own tokens, written
-     out literally because an SVG loaded through <img> inherits no CSS. The tag
-     colour is the same mustard the live demo marks identifiers with. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" role="img"
-     aria-label="phi-scrubber run from the command line on a fictional discharge summary, replacing fourteen identifiers with bracketed tags"
+<!-- Transcribed from a real CLI run on 2026-11-10, not hand-written. The mode
+     line, the span count and the character count are the tool's own output.
+     Colours are the site's own tokens, written out literally because an SVG
+     loaded through <img> inherits no CSS. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 690" role="img"
+     aria-label="phi-scrubber run from the command line on a fictional discharge summary, replacing twenty-one identifiers with bracketed tags"
      font-family="ui-monospace,'Cascadia Code','Consolas',monospace" font-size="13.5">
   <title>phi-scrubber at the command line</title>
 
-  <rect width="900" height="660" fill="#23100e"/>
+  <rect width="900" height="690" fill="#23100e"/>
   <rect x="0" y="0" width="900" height="34" fill="#150a09"/>
   <circle cx="22" cy="17" r="5" fill="#dc1928"/>
   <circle cx="40" cy="17" r="5" fill="#e0a912"/>
   <circle cx="58" cy="17" r="5" fill="#6b8f6b"/>
   <text x="450" y="22" fill="#b9a79a" text-anchor="middle" font-size="12" letter-spacing="1.6">phi-scrubber</text>
 
-  <!-- Input -->
   <text x="28" y="72" fill="#a9c0cd">$ cat tests/fixtures/sample_note.txt</text>
   <text x="28" y="104" fill="#f3ece0" letter-spacing="1.4">DISCHARGE SUMMARY</text>
   <text x="28" y="128" fill="#f3ece0">Patient: Mr. <tspan fill="#f2a7a0">John Adeyemi</tspan></text>
   <text x="28" y="148" fill="#f3ece0">DOB: <tspan fill="#f2a7a0">4/22/1971</tspan>      MRN: <tspan fill="#f2a7a0">8842193</tspan></text>
-  <text x="28" y="168" fill="#f3ece0">Address: 1421 Maple Ave, <tspan fill="#f2a7a0">Damascus, MD</tspan> <tspan fill="#f2a7a0">20872</tspan></text>
+  <text x="28" y="168" fill="#f3ece0">Address: <tspan fill="#f2a7a0">1421 Maple Ave</tspan>, <tspan fill="#f2a7a0">Damascus, MD</tspan> <tspan fill="#f2a7a0">20872</tspan></text>
   <text x="28" y="188" fill="#f3ece0">Phone: <tspan fill="#f2a7a0">(301) 555-0123</tspan>   Email: <tspan fill="#f2a7a0">john.adeyemi@example.com</tspan></text>
-  <text x="28" y="208" fill="#f3ece0">Admission: <tspan fill="#f2a7a0">3/14/2026</tspan>   Discharge: <tspan fill="#f2a7a0">3/19/2026</tspan></text>
-  <text x="28" y="228" fill="#f3ece0">PCP: <tspan fill="#f2a7a0">Dr. Sarah Chen</tspan> at <tspan fill="#f2a7a0">Shady Grove Medical</tspan></text>
-  <text x="28" y="248" fill="#f3ece0">Insurance member ID: <tspan fill="#f2a7a0">ABC-12345-XYZ</tspan></text>
-  <text x="640" y="104" fill="#b9a79a" font-size="12">&#8592; 14 identifiers</text>
+  <text x="28" y="208" fill="#f3ece0">PCP: Dr. <tspan fill="#f2a7a0">Sarah Chen</tspan> at <tspan fill="#f2a7a0">Shady Grove Medical</tspan></text>
+  <text x="28" y="228" fill="#f3ece0">Insurance member ID: <tspan fill="#f2a7a0">ABC-12345-XYZ</tspan></text>
 
-  <line x1="28" y1="276" x2="872" y2="276" stroke="#4a2a26"/>
+  <line x1="28" y1="256" x2="872" y2="256" stroke="#4a2a26"/>
 
-  <!-- Command -->
-  <text x="28" y="308" fill="#a9c0cd">$ phi-scrubber tests/fixtures/sample_note.txt <tspan fill="#e0a912">--patient-id</tspan> pt_001</text>
-  <text x="28" y="330" fill="#b9a79a" font-size="12">[phi-scrubber] mode: regex + NER (en_core_web_lg)</text>
+  <text x="28" y="288" fill="#a9c0cd">$ phi-scrubber tests/fixtures/sample_note.txt <tspan fill="#e0a912">--patient-id</tspan> pt_001</text>
+  <text x="28" y="310" fill="#b9a79a" font-size="12">[phi-scrubber] mode: regex-only (spaCy not installed)</text>
 
-  <!-- Output -->
-  <text x="28" y="366" fill="#f3ece0" letter-spacing="1.4">DISCHARGE SUMMARY</text>
-  <text x="28" y="390" fill="#f3ece0">Patient: <tspan fill="#e0a912">[PATIENT_1]</tspan></text>
-  <text x="28" y="410" fill="#f3ece0">DOB: <tspan fill="#e0a912">[DATE_SHIFTED]</tspan>      MRN: <tspan fill="#e0a912">[ID]</tspan></text>
-  <text x="28" y="430" fill="#f3ece0">Address: 1421 Maple Ave, <tspan fill="#e0a912">[CITY]</tspan> <tspan fill="#e0a912">[ZIP]</tspan></text>
-  <text x="28" y="450" fill="#f3ece0">Phone: <tspan fill="#e0a912">[PHONE]</tspan>   Email: <tspan fill="#e0a912">[EMAIL]</tspan></text>
-  <text x="28" y="470" fill="#f3ece0">Admission: <tspan fill="#e0a912">[DATE_SHIFTED]</tspan>   Discharge: <tspan fill="#e0a912">[DATE_SHIFTED]</tspan></text>
-  <text x="28" y="490" fill="#f3ece0">PCP: <tspan fill="#e0a912">[DOCTOR_1]</tspan> at <tspan fill="#e0a912">[HOSPITAL_1]</tspan></text>
-  <text x="28" y="510" fill="#f3ece0">Insurance member ID: <tspan fill="#e0a912">[ID]</tspan></text>
-  <text x="640" y="366" fill="#b9a79a" font-size="12">&#8592; 0 remaining</text>
+  <text x="28" y="344" fill="#f3ece0" letter-spacing="1.4">DISCHARGE SUMMARY</text>
+  <text x="28" y="368" fill="#f3ece0">Patient: Mr. <tspan fill="#e0a912">[PATIENT_1]</tspan></text>
+  <text x="28" y="388" fill="#f3ece0">DOB: <tspan fill="#e0a912">[DATE_SHIFTED]</tspan>      MRN: <tspan fill="#e0a912">[ID]</tspan></text>
+  <text x="28" y="408" fill="#f3ece0">Address: <tspan fill="#e0a912">[ADDRESS_1]</tspan>, <tspan fill="#e0a912">[CITY]</tspan> <tspan fill="#e0a912">[ZIP]</tspan></text>
+  <text x="28" y="428" fill="#f3ece0">Phone: <tspan fill="#e0a912">[PHONE]</tspan>   Email: <tspan fill="#e0a912">[EMAIL]</tspan></text>
+  <text x="28" y="448" fill="#f3ece0">PCP: Dr. <tspan fill="#e0a912">[DOCTOR_1]</tspan> at <tspan fill="#e0a912">[HOSPITAL_1]</tspan></text>
+  <text x="28" y="468" fill="#f3ece0">Insurance member ID: <tspan fill="#e0a912">[ID]</tspan></text>
 
-  <line x1="28" y1="538" x2="872" y2="538" stroke="#4a2a26"/>
+  <line x1="28" y1="496" x2="872" y2="496" stroke="#4a2a26"/>
 
-  <!-- Audit -->
-  <text x="28" y="570" fill="#a9c0cd">$ phi-scrubber sample_note.txt <tspan fill="#e0a912">-o</tspan> scrubbed.txt <tspan fill="#e0a912">--audit</tspan> audit.json</text>
-  <text x="28" y="592" fill="#b9a79a" font-size="12">[phi-scrubber] wrote 397 chars &#8594; scrubbed.txt, 14 spans replaced</text>
-  <text x="28" y="610" fill="#b9a79a" font-size="12">[phi-scrubber] wrote audit &#8594; audit.json</text>
+  <text x="28" y="528" fill="#a9c0cd">$ phi-scrubber sample_note.txt <tspan fill="#e0a912">-o</tspan> scrubbed.txt <tspan fill="#e0a912">--audit</tspan> audit.json</text>
+  <text x="28" y="550" fill="#b9a79a" font-size="12">[phi-scrubber] wrote 661 chars -&gt; scrubbed.txt, 21 spans replaced</text>
+  <text x="28" y="568" fill="#b9a79a" font-size="12">[phi-scrubber] wrote audit -&gt; audit.json</text>
 
-  <text x="28" y="642" fill="#e0a912" font-size="12">Safe Harbor §164.514(b)(2). Not a sole de-identification control &#8212; a human reviewer is still required.</text>
+  <text x="28" y="602" fill="#e0a912" font-size="12" letter-spacing="1.2">21 SPANS REPLACED</text>
+  <text x="28" y="624" fill="#b9a79a" font-size="12">DATE 4 · DOCTOR 4 · PATIENT 2 · ID 2 · PHONE 2 · HOSPITAL 2</text>
+  <text x="28" y="642" fill="#b9a79a" font-size="12">ADDRESS 1 · CITY 1 · ZIP 1 · EMAIL 1 · URL 1</text>
+
+  <text x="28" y="674" fill="#e0a912" font-size="12">Safe Harbor §164.514(b)(2). Not a sole de-identification control — a human reviewer is still required.</text>
 </svg>

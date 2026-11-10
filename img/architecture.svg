@@ -27,18 +27,20 @@
   <text x="854" y="144" fill="#f0e7d9" font-size="12" letter-spacing="2.4">3 &#183; APPLY</text>
 
   <!-- Input -->
-  <rect x="44" y="258" width="186" height="62" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
-  <text x="60" y="286" fill="#f0e7d9" font-size="16" font-weight="500">clinical note</text>
-  <text x="60" y="306" fill="#b09a90" font-size="12">.txt or FHIR DocumentReference</text>
+  <rect x="44" y="252" width="196" height="76" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
+  <text x="60" y="280" fill="#f0e7d9" font-size="16" font-weight="500">clinical note</text>
+  <text x="60" y="300" fill="#b09a90" font-size="12">.txt file, or a FHIR</text>
+  <text x="60" y="316" fill="#b09a90" font-size="12">DocumentReference</text>
 
   <!-- Detectors -->
-  <rect x="292" y="174" width="248" height="58" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
-  <text x="308" y="198" fill="#f0e7d9" font-size="16" font-weight="500">regex detectors</text>
-  <text x="308" y="218" fill="#b09a90" font-size="12">phone · email · SSN · MRN · dates · ZIP · IP</text>
+  <rect x="292" y="168" width="248" height="72" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
+  <text x="308" y="194" fill="#f0e7d9" font-size="16" font-weight="500">regex detectors</text>
+  <text x="308" y="214" fill="#b09a90" font-size="12">phone · email · SSN · labelled IDs · dates</text>
+  <text x="308" y="230" fill="#b09a90" font-size="12">street address · ZIP · IP · age 90+</text>
 
   <rect x="292" y="248" width="248" height="58" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
   <text x="308" y="272" fill="#f0e7d9" font-size="16" font-weight="500">spaCy NER</text>
-  <text x="308" y="292" fill="#b09a90" font-size="12">PERSON · ORG · GPE · falls back if absent</text>
+  <text x="308" y="292" fill="#b09a90" font-size="12">PERSON · ORG · GPE — optional</text>
 
   <rect x="292" y="322" width="248" height="58" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
   <text x="308" y="346" fill="#f0e7d9" font-size="16" font-weight="500">gazetteer</text>
@@ -59,9 +61,9 @@
   <text x="618" y="323" fill="#b09a90" font-size="12">whole document</text>
 
   <rect x="602" y="358" width="212" height="62" fill="#e0a912" stroke="#e0a912" stroke-width="1.5"/>
-  <text x="618" y="382" fill="#f0e7d9" font-size="16" font-weight="500">date shifter</text>
-  <text x="618" y="401" fill="#4f3406" font-size="12">SHA-256(patient_id) &#8594; ±180d,</text>
-  <text x="618" y="415" fill="#4f3406" font-size="12">intervals preserved</text>
+  <text x="618" y="382" fill="#2a1110" font-size="16" font-weight="500">date handling</text>
+  <text x="618" y="401" fill="#4f3406" font-size="12">whole date removed;</text>
+  <text x="618" y="415" fill="#4f3406" font-size="12">bare year may remain</text>
 
   <!-- Apply + outputs -->
   <rect x="862" y="266" width="174" height="62" fill="#23100e" stroke="#f0e7d9" stroke-width="1.5"/>
