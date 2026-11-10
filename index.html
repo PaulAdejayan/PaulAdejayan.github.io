@@ -5,8 +5,8 @@
 <title>Paul Adejayan</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#dc1928">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#dc1928">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#150a09">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#150a09">
 <meta name="description" content="Paul Adejayan builds automation where security meets AI. CS and cybersecurity at UMBC, graduating May 2027. Security+ certified, clearance-eligible.">
 <link rel="canonical" href="https://pauladejayan.github.io/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23dc1928'/><text x='16' y='23' text-anchor='middle' font-family='Times New Roman,serif' font-size='22' fill='white'>P</text></svg>">
@@ -24,19 +24,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <style>
-html,body{background:#e2dccf}
+html,body{background:#150a09}
 html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
 /* Layout: type-only first screen on a post-red field, then typographic set pieces that move left, right and full width. */
 :root{
-  color-scheme:light;
-  --bg:#e2dccf;        /* bone */
-  --surface:#d7d0c1;
-  --ink:#2a1110;
-  --muted:#6b524c;
-  --accent:#4a6f84;    /* slate */
-  --accent-ink:#ffffff;
-  --red:#dc1928; --red-ink:#ffffff;
-  --maroon:#952625;
+  color-scheme:dark;
+  --bg:#150a09;        /* warm near-black - the reds are warm, so the black is too */
+  --surface:#23100e;
+  --panel:#2e1512;
+  --ink:#f0e7d9;       /* bone, now the text */
+  --muted:#b09a90;     /* 7.3:1 on --bg */
+  --accent:#a9c0cd;    /* slate, lightened: #4a6f84 is 3.6:1 on this ground */
+  --accent-ink:#20100e;
+  --red:#dc1928; --red-ink:#ffffff;   /* red is a fill here, never small text: 3.9:1 */
+  --maroon:#952625;    /* dark fill only */
+  --link:#e0a912;      /* link text on dark, 9.9:1 */
+  --on-light:#20100e;  /* text that sits on mustard, bone or a highlight */
   --mustard:#e0a912;
   --display:'Instrument Serif','Times New Roman',serif;
   --text:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -51,6 +54,10 @@ html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;color:var(--ink);font-family:var(--text);font-size:var(--step-body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
+/* Grain. A flat dark ground bands on cheap panels and reads as plastic; one
+   fixed noise layer is what gives it a surface. Clicks pass through it. */
+body::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.42;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
 h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-height:.92;margin:0;text-wrap:balance}
@@ -58,7 +65,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-h
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 
 /* ---------- Hero ---------- */
-.hero{background:var(--red);color:var(--red-ink);min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding-block:24px 28px}
+.hero{background:radial-gradient(118% 86% at 76% 6%,rgba(220,25,40,.26),transparent 62%),var(--bg);color:var(--ink);min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding-block:24px 28px}
 .top{display:flex;justify-content:space-between;align-items:baseline;font-size:16px}
 .top a{text-decoration:none}
 .top nav{display:flex;gap:28px}
@@ -69,14 +76,14 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-h
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.12em}
 .hero h1 .ln > span{display:block}
 .hero h1 .ln:last-child{text-align:right}
-.hero__foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.hero__foot{border-top:2px solid var(--red);padding-top:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
 .hero__foot p{margin:0;font-size:22px;line-height:1.35;max-width:44ch}
 .hero__foot p .creds{display:block;margin-top:10px;font-size:16px;line-height:1.45}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;background:var(--ink);color:#fff;text-decoration:none;font-size:16px;font-weight:500;white-space:nowrap;transition:transform .3s var(--ease),background .3s}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;background:var(--red);color:#fff;text-decoration:none;font-size:16px;font-weight:500;white-space:nowrap;transition:transform .3s var(--ease),background .3s}
 .btn:active{transform:translateY(0)}
 .btn svg{transition:transform .3s var(--ease)}
-.btn.ghost{background:var(--bg);color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px currentColor}
 
 /* ---------- Work ledger ---------- */
 .work{padding-block:200px 160px;position:relative}
@@ -94,29 +101,29 @@ h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;line-h
 .row .desc,.row .pf{display:none}
 .archive{margin:40px 0 0;font-size:16px;line-height:1.55;color:var(--muted);max-width:54ch}
 .archive strong{color:var(--ink);font-weight:500}
-.preview{position:absolute;left:calc(100% + 64px);top:96px;width:min(420px,calc(80vw - 580px - 64px - 24px));padding:28px;background:var(--surface);transition:top .35s var(--ease)}
+.preview{position:absolute;left:calc(100% + 64px);top:96px;width:min(420px,calc(80vw - 580px - 64px - 24px));padding:28px;background:var(--panel);border-left:2px solid var(--red);transition:top .35s var(--ease)}
 .preview h3{font-size:clamp(28px,2.4vw,40px);margin-bottom:14px}
 .preview p{margin:0 0 16px}
 .preview .tags{font-size:var(--step-small);color:var(--muted);margin:0}
 .preview .swap{transition:opacity .15s}
 .proof{margin:0 0 16px!important;font-size:var(--step-small)}
-.proof a{color:var(--maroon);font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.proof a{color:var(--link);font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 
 /* ---------- PHI demo (live thing) ---------- */
-.demo{background:var(--ink);color:#f3ece0;padding-block:160px}
+.demo{background:var(--surface);color:var(--ink);padding-block:160px}
 .demo__head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
-.demo h2{font-size:var(--step-head);color:#fff}
-.demo__head p{margin:0;max-width:52ch;color:#e3d6c8}
+.demo h2{font-size:var(--step-head);color:var(--ink)}
+.demo__head p{margin:0;max-width:52ch;color:var(--muted)}
 .panes{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .pane{display:flex;flex-direction:column;gap:12px;min-width:0}
-.pane label,.pane .lbl{font-size:16px;color:#d9c8b8}
-textarea{font:inherit;font-size:16px;line-height:1.55;color:var(--ink);background:#f3ece0;border:0;border-radius:0;padding:20px;min-height:300px;resize:vertical;width:100%}
+.pane label,.pane .lbl{font-size:16px;color:var(--muted)}
+textarea{font:inherit;font-size:16px;line-height:1.55;color:var(--on-light);background:#f3ece0;border:0;border-radius:0;padding:20px;min-height:300px;resize:vertical;width:100%}
 textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .out{background:#3b1a18;padding:20px;min-height:300px;line-height:1.55;font-size:16px;white-space:pre-wrap;overflow-wrap:anywhere}
-.out mark{background:var(--mustard);color:var(--ink);padding:0 .2em;border-radius:2px;font-weight:500}
-.demo__meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:20px;font-size:16px;color:#d9c8b8}
-.demo__meta strong{color:#fff;font-weight:500}
-.demo__meta a{color:#fff}
+.out mark{background:var(--mustard);color:var(--on-light);padding:0 .2em;border-radius:2px;font-weight:500}
+.demo__meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:20px;font-size:16px;color:var(--muted)}
+.demo__meta strong{color:var(--ink);font-weight:500}
+.demo__meta a{color:var(--link)}
 
 /* ---------- Engineering artifacts (SVG drawn for a dark README, so each
    sits on its own light panel to stay legible on cream and red) ---------- */
@@ -126,8 +133,8 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
    page does not, and the panel is a link so a tap opens the SVG full size. */
 .art img{width:100%;height:auto;min-width:720px}
 .art figcaption{padding-block:14px 0;font-size:16px;color:var(--muted);max-width:60ch}
-.mono{font-family:ui-monospace,SFMono-Regular,'Cascadia Code','Consolas',monospace;font-size:var(--step-small);line-height:1.65;color:var(--ink);background:var(--surface);border-left:3px solid var(--red);padding:14px 16px;margin:18px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
-.mono b{font-weight:600;color:var(--maroon)}
+.mono{font-family:ui-monospace,SFMono-Regular,'Cascadia Code','Consolas',monospace;font-size:var(--step-small);line-height:1.65;color:var(--ink);background:var(--panel);border-left:3px solid var(--red);padding:14px 16px;margin:18px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.mono b{font-weight:600;color:var(--link)}
 .demo .mono{background:#3b1a18;color:#f3ece0;border-left-color:var(--mustard)}
 .demo .mono b{color:var(--mustard)}
 
@@ -137,7 +144,7 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .bleed figcaption{padding-block:14px 0;font-size:16px;color:var(--muted)}
 
 /* ---------- Experience line-up ---------- */
-.lineup{background:var(--mustard);color:var(--ink);padding-block:120px 140px}
+.lineup{background:var(--mustard);color:var(--on-light);padding-block:120px 140px}
 .lineup h2{font-size:var(--step-head);margin-bottom:12px}
 .lineup table{width:100%;border-collapse:collapse;font-size:clamp(20px,2.1vw,30px);line-height:1.5}
 .lineup th{font-weight:400;text-align:left}
@@ -161,7 +168,7 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .ask a{background:var(--red);color:#fff;text-decoration:none;padding:.12em .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .story{columns:2;column-gap:40px;font-size:clamp(22px,2vw,30px);line-height:1.22;text-align:justify;hyphens:auto;margin:0;color:var(--ink)}
 .story b{color:var(--ink);font-weight:500}
-.hl{color:var(--ink);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl{color:var(--on-light);padding:0 .1em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .hl-m{background:var(--mustard)}
 .hl-s{background:#a9c0cd}
 .hl-r{background:#f2a7a0}
@@ -178,7 +185,7 @@ a.crow{transition:background .3s}
 .crow .arrow svg{width:.4em;height:.4em}
 
 /* ---------- Footer ---------- */
-.foot{background:var(--ink);color:#f3ece0;display:grid;grid-template-rows:auto auto;row-gap:clamp(96px,14vw,200px);padding-block:56px 20px}
+.foot{background:#0c0504;color:var(--ink);display:grid;grid-template-rows:auto auto;row-gap:clamp(96px,14vw,200px);padding-block:56px 20px}
 .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;font-size:16px}
 .cols h3{font-family:var(--text);font-size:16px;font-weight:500;letter-spacing:0;line-height:1.5;color:#fff;margin-bottom:6px}
 .cols ul{list-style:none;margin:0;padding:0;color:#cdbcaf}
@@ -199,7 +206,7 @@ button,.btn,.crow,.row button,.top nav a{user-select:none;-webkit-user-select:no
    respond when the finger lands, not when it lifts. */
 .btn:active{transform:scale(.985)}
 a.crow:active{background:var(--maroon)}
-.row button:active .name{color:var(--maroon)}
+.row button:active .name{color:var(--link)}
 .skills li:active{color:var(--red)}
 
 /* ---------- Hover: pointing devices only ----------
@@ -207,11 +214,11 @@ a.crow:active{background:var(--maroon)}
    a tapped skill stays shifted 12px and red until you tap elsewhere. */
 @media (hover:hover) and (pointer:fine){
   .top nav a:hover::after{transform:scaleX(1)}
-  .btn:hover{transform:translateY(-2px);background:#1a0807}
+  .btn:hover{transform:translateY(-2px);background:#b31220}
   .btn:hover svg{transform:translateY(3px)}
-  .btn.ghost:hover{background:#fff}
+  .btn.ghost:hover{background:var(--ink);color:var(--bg)}
   .btn.ghost:hover svg{transform:translateY(3px)}
-  .proof a:hover{color:var(--red)}
+  .proof a:hover{color:var(--ink)}
   .skills li:hover{transform:translateX(12px);color:var(--red)}
     a.crow:hover{background:var(--maroon)}
   a.crow:hover .arrow{transform:rotate(-45deg)}
@@ -276,7 +283,7 @@ a.crow:active{background:var(--maroon)}
   .contact h2{padding-block:96px 24px}
   .crow{min-height:84px;font-size:9.6vw;padding-bottom:16px;flex-wrap:wrap}
   .crow small{display:none}
-  .crow.hello{background:var(--accent)}
+  .crow.hello{background:var(--maroon)}
   .crow .arrow{width:56px;height:56px;margin-left:12px}
   .crow .arrow svg{width:20px;height:20px}
   .cols{grid-template-columns:1fr 1fr;row-gap:32px}
@@ -584,6 +591,34 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
     noun.textContent = emitted === 1 ? 'identifier' : 'identifiers';
   };
   note.addEventListener('input', scrub); scrub();
+
+  /* ---- Pointer motion: fine pointers only, and never under reduced motion.
+     Touch has no hover to track, and a phone would just see it snap. ---- */
+  const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if (fine && !reduce) {
+    const ledger = document.querySelector('.ledger');
+    let target = 96, cur = 96, raf = 0;
+    const tick = () => {
+      cur += (target - cur) * 0.12;
+      preview.style.top = cur.toFixed(1) + 'px';
+      raf = Math.abs(target - cur) > 0.4 ? requestAnimationFrame(tick) : 0;
+    };
+    ledger.addEventListener('mousemove', (e) => {
+      const r = ledger.getBoundingClientRect();
+      const max = Math.max(0, ledger.offsetHeight - preview.offsetHeight);
+      target = Math.max(0, Math.min(e.clientY - r.top - 60, max));
+      if (!raf) raf = requestAnimationFrame(tick);
+    }, { passive: true });
+    preview.style.transition = 'none';
+
+    const h1 = document.querySelector('.hero h1');
+    const hero = document.querySelector('.hero');
+    addEventListener('mousemove', (e) => {
+      if (hero.getBoundingClientRect().bottom < 0) return;   // off screen, skip the write
+      const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+      h1.style.transform = `translate3d(${(x * 16).toFixed(1)}px,${(y * 11).toFixed(1)}px,0)`;
+    }, { passive: true });
+  }
 
   /* ---- Reveals ---- */
   const els = document.querySelectorAll('.rv');

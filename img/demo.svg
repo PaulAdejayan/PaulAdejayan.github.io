@@ -7,8 +7,8 @@
      font-family="ui-monospace,'Cascadia Code','Consolas',monospace" font-size="13.5">
   <title>phi-scrubber at the command line</title>
 
-  <rect width="900" height="660" fill="#2a1110"/>
-  <rect x="0" y="0" width="900" height="34" fill="#1d0b0a"/>
+  <rect width="900" height="660" fill="#23100e"/>
+  <rect x="0" y="0" width="900" height="34" fill="#150a09"/>
   <circle cx="22" cy="17" r="5" fill="#dc1928"/>
   <circle cx="40" cy="17" r="5" fill="#e0a912"/>
   <circle cx="58" cy="17" r="5" fill="#6b8f6b"/>
