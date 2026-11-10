@@ -629,7 +629,13 @@ $ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit<
     const i = Math.max(0, sib.indexOf(e.target));
     e.target.style.transitionDelay = (Math.min(i, 8) * 70) + 'ms';
     e.target.classList.add('in'); io.unobserve(e.target);
-  }), { rootMargin: '0px 0px -8% 0px' });
+  }), { rootMargin: '100000px 0px -8% 0px' });
+  /* The huge top margin is the whole fix for sections that never appeared.
+     IntersectionObserver only fires when the ratio CHANGES. Scroll fast, or
+     click a nav link and jump, and an element goes from below the viewport
+     (ratio 0) straight to above it (ratio 0) - no change, no callback, and it
+     stays invisible for good. Growing the root upwards means anything that has
+     passed the fold is still intersecting, so the 0 -> 1 edge always happens. */
   els.forEach(e => io.observe(e));
 })();
 </script>
