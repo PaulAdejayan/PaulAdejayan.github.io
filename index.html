@@ -118,6 +118,19 @@ textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:0}
 .demo__meta strong{color:#fff;font-weight:500}
 .demo__meta a{color:#fff}
 
+/* ---------- Engineering artifacts (SVG drawn for a dark README, so each
+   sits on its own light panel to stay legible on cream and red) ---------- */
+.art{margin:0;min-width:0}  /* grid items default to min-width:auto; the wide SVG would stretch the track */
+.art .panel{background:#fafafa;padding:clamp(14px,2.4vw,28px);overflow-x:auto}
+/* min-width keeps the diagram's 11px labels readable on a phone; the panel
+   scrolls, the page does not. */
+.art img{width:100%;height:auto;min-width:720px}
+.art figcaption{padding-block:14px 0;font-size:16px;color:var(--muted);max-width:60ch}
+.mono{font-family:ui-monospace,SFMono-Regular,'Cascadia Code','Consolas',monospace;font-size:var(--step-small);line-height:1.65;color:var(--ink);background:var(--surface);border-left:3px solid var(--red);padding:14px 16px;margin:18px 0 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.mono b{font-weight:600;color:var(--maroon)}
+.demo .mono{background:#3b1a18;color:#f3ece0;border-left-color:var(--mustard)}
+.demo .mono b{color:var(--mustard)}
+
 /* ---------- Full-bleed photograph ---------- */
 .bleed{margin:0;position:relative}
 .bleed img{width:100%;height:min(78svh,760px);object-fit:cover}
@@ -333,13 +346,17 @@ a.crow:active{background:var(--maroon)}
     </div>
     <div class="demo__meta">
       <span><strong id="count">0</strong> <span id="noun">identifiers</span> replaced in your browser. Nothing is sent anywhere.</span>
-      <span>This demo uses patterns only. The real tool adds named-entity recognition, keyed date shifting and a 56-test suite run in CI. <a href="https://github.com/PaulAdejayan/phi-scrubber">Source on GitHub, MIT licensed</a></span>
+      <span>This demo uses patterns only. The real tool adds named-entity recognition, keyed date shifting and an 80-test suite run in CI. <a href="https://github.com/PaulAdejayan/phi-scrubber">Source on GitHub, MIT licensed</a></span>
     </div>
+    <p class="mono rv">$ phi-scrubber tests/fixtures/sample_note.txt <b>--patient-id</b> pt_001
+$ phi-scrubber tests/fixtures/sample_note.txt <b>-o</b> scrubbed.txt <b>--audit</b> audit.json
+[phi-scrubber] mode: regex + NER (en_core_web_lg)</p>
   </section>
 
-  <figure class="bleed slow rv">
-    <img src="img/gateway-center-entrance-national-institutes-of-health.jpg" width="1800" height="1013" alt="The Gateway Center visitor entrance at the National Institutes of Health campus in Bethesda, Maryland" loading="lazy">
-    <figcaption class="wrap">The NIH campus in Bethesda, where I interned with the NIDDK IT team in 2026 and return in spring 2027.</figcaption>
+  <figure class="art wrap rv">
+    <div class="panel"><img src="img/architecture.svg" width="980" height="480" alt="The phi-scrubber pipeline: a clinical note fans out to three detectors — regex patterns, spaCy named-entity recognition and a hospital gazetteer — each emitting start, end, category and confidence spans; the spans go through span merge and a tag assigner, dates pass through a SHA-256 keyed shifter, and replacements are applied right-to-left to produce scrubbed text plus an audit JSON." loading="lazy"></div>
+    <figcaption>How PHI Scrubber works end to end. Three detectors emit spans, the merge step resolves overlaps by longest match, the tag assigner keeps one person one tag across the document, and dates are shifted by a per-patient offset so intervals survive.</figcaption>
+    <p class="mono">detectors (regex · spaCy NER · gazetteer) &rarr; span merge &rarr; tag assigner &rarr; date shifter &rarr; scrubbed text + audit JSON</p>
   </figure>
 
   <section class="lineup wrap" id="experience" aria-labelledby="exp-h">
@@ -361,9 +378,9 @@ a.crow:active{background:var(--maroon)}
   </section>
 
   <section class="stack wrap" aria-labelledby="stack-h">
-    <figure class="slow rv">
-      <img src="img/139-server-room-01.jpg" width="1800" height="1350" alt="Rows of glass-fronted server racks in a white server room" loading="lazy">
-      <figcaption>Racks and cabling: the kind of room my automations end up talking to.</figcaption>
+    <figure class="art rv">
+      <div class="panel"><img src="img/demo.svg" width="920" height="720" alt="A terminal window showing phi-scrubber run against a fictional discharge summary: the input note with name, date of birth, MRN, address, phone, email, admission and discharge dates, provider and insurance ID, then the same note with each identifier replaced by a bracketed tag such as PATIENT_1, DATE_SHIFTED, PHONE and HOSPITAL_1, followed by a count of fourteen spans replaced." loading="lazy"></div>
+      <figcaption>The CLI on a fictional discharge summary. Fourteen spans replaced, one audit record per span.</figcaption>
     </figure>
     <div>
       <h2 id="stack-h" class="rv">What I work in</h2>
@@ -409,7 +426,7 @@ a.crow:active{background:var(--maroon)}
     <div><h3>Paul Adejayan</h3><ul><li>Computer science and cybersecurity</li><li>UMBC, class of 2027</li><li>Baltimore, Maryland</li></ul></div>
     <div><h3>On this page</h3><ul><li><a href="#work">Work</a></li><li><a href="#phi">PHI Scrubber demo</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div><h3>Elsewhere</h3><ul><li><a href="Paul_Adejayan_Resume.pdf">Résumé (PDF)</a></li><li><a href="mailto:pauladejayan@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/paul-adejayan-6b0719217">LinkedIn</a></li><li><a href="https://github.com/PaulAdejayan">GitHub</a></li></ul></div>
-    <div><h3>Photographs</h3><p class="credits">Albin O. Kuhn Library by Tim Menzies, CC BY-SA 2.0. NIH Gateway Center by G. Edward Johnson, CC BY 4.0. Server room by Indrajit Das, CC BY-SA 3.0. Baltimore skyline by Joe Ravi, CC BY-SA 3.0. All via Wikimedia Commons.</p></div>
+    <div><h3>Photographs</h3><p class="credits">Albin O. Kuhn Library by Tim Menzies, CC BY-SA 2.0. Baltimore skyline by Joe Ravi, CC BY-SA 3.0. Both via Wikimedia Commons. Pipeline diagram and CLI figure drawn by me for the phi-scrubber documentation.</p></div>
   </div>
   <div>
     <svg class="mark" viewBox="0 0 1000 182" role="img" aria-label="Paul Adejayan"><text x="0" y="128" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="168">Paul Adejayan</text></svg>
@@ -427,9 +444,9 @@ a.crow:active{background:var(--maroon)}
   /* ---- Work ledger: five featured, strongest and most verifiable first ---- */
   const work = [
     { n:'PHI Scrubber', k:'Open-source privacy tool', y:'2026',
-      d:'Detects and replaces the 18 HIPAA Safe Harbor identifiers in clinical free text. A regex stage handles structured IDs, a spaCy model finds people, places and organizations, and keyed date shifting keeps intervals intact. CLI and library, 56 tests, MIT licensed.',
+      d:'Detects and replaces the 18 HIPAA Safe Harbor identifiers in clinical free text. A regex stage handles structured IDs, a spaCy model finds people, places and organizations, and keyed date shifting keeps intervals intact. CLI and library, 80 tests, MIT licensed.',
       t:'Python · spaCy · pytest · try it below',
-      u:'https://github.com/PaulAdejayan/phi-scrubber', ul:'Source on GitHub, MIT, 56 tests in CI' },
+      u:'https://github.com/PaulAdejayan/phi-scrubber', ul:'Source on GitHub, MIT, 80 tests in CI' },
     { n:'Outage broadcasting system', k:'IT automation, NIH NIDDK', y:'2026',
       d:'One tracked record drives both the notices users receive and a status page that updates itself. The status (Investigating, Active, Scheduled maintenance, Resolved) decides which notice goes out, and sent flags stop duplicates.',
       t:'Internship project · automation and security' },
